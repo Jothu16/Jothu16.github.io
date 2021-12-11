@@ -1,6 +1,7 @@
 {
   "Merced":
   [
+    //Fast Food
     {
       "Place": "Five Guys",
       "Address": "3572 G St, Merced, CA, 95340",
@@ -115,6 +116,9 @@
       "Type": "Fast Food",
       "Rating": "4.6"
     },
+
+    //Asian
+
     {
       "Place": "King's Asian Cuisine",
       "Address": "360 W Main St",
@@ -168,7 +172,95 @@
       "Address": "57 W Alexander Ave, Merced, CA 95340",
       "Type": "Asian",
       "Rating": "4.6"
+    },
+    {
+      "Place": "Coconut Cafe",
+      "Address": "3368 N State Hwy 59 STE N, Merced, CA 95340",
+      "Type": "Asian",
+      "Rating": "4.6"
+    },
+    {
+      "Place": "Fusion Cafe & Fruits",
+      "Address": "900 Loughborough Dr Ste. E, Merced, CA 95340",
+      "Type": "Asian",
+      "Rating": "4.5"
+    },
+
+    //Steakhouse
+
+    {
+      "Place": "Sizzler",
+      "Address": "1334 W Olive Ave, Merced, CA 95340",
+      "Type": "Steakhouse",
+      "Rating": "4.1"
+    },
+
+    //American
+
+    {
+      "Place": "Country Waffles Merced",
+      "Address": "1794 W Olive Ave, Merced< CA 95340",
+      "Type": "American",
+      "Rating": "4.3"
+    },
+    {
+      "Place": "Paul's Place Restaurant & Bakery",
+      "Address": "2991 G St, Merced, CA 95340",
+      "Type": "American",
+      "Rating": "4.4"
+    },
+
+
+    //Italian
+
+    {
+      "Place": "Table 59",
+      "Adress": "3360 N State Hwy 59, Merced, CA 95340",
+      "Type": "Italian",
+      "Rating": "4.4"
+    },
+    {
+      "Place": "Pizza Villa",
+      "Address": "1111 Loughborough Dr, CA 95340",
+      "Type": "Italian",
+      "Rating": "4.3"
+    },
+    {
+      "Place": "Strings",
+      "Address": "731 E Yosemite Ave, Merced, CA 95340",
+      "Type": "Italian",
+      "Rating": "4.2"
+    },
+
+    //Mexican
+    {
+      "Place": "Villa's",
+      "Address": "900 Loughborough Dr, Merced, CA 95348",
+      "Type": "Mexican",
+      "Rating": "4.4"
+    },
+    {
+      "Place": "El Asadero Taco Shop",
+      "Address": "3532 G St, Merced, CA 95340",
+      "Type": "Mexican",
+      "Rating": "4.3"
+    },
+    {
+      "Place": "Taqueria El Huarache",
+      "Address": "3115 R St, Merced, CA 95340",
+      "Type": "Mexican",
+      "Rating": "4.1"
     }
+
+    //Bar and Grill
+    {
+      "Place": "Applebee's Grill + Bar",
+      "Address": "1734 W Olive Ave, Merced, CA 95340",
+      "Type": "Bar and Grill",
+      "Rating": "3.9"
+    }
+
+
   ],
 
 }
