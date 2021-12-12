@@ -68,7 +68,21 @@ span.psw {
 <body>
   <script>
     function MadeAccount() {
-      alert("Account Created! Sign in below!");
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            const payload = {
+                username : username,
+                name: "Billy Bobby",
+                password: password
+            };
+            const url = "http://127.0.0.1:5000/createuser";
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", url);
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.onload = function() {
+                console.log("Created User")
+            }
+            xhttp.send(JSON.stringify(payload))
     }
     function loginUser() {
             let username = document.getElementById("username").value;

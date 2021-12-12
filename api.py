@@ -1,6 +1,6 @@
 import json
 from typing import Dict
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, abort
 from flask_admin import Admin
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin.contrib.sqla import ModelView
@@ -28,11 +28,12 @@ class User(UserMixin, db.Model):
     password = db.Column(db.String, unique=False, nullable=False)
     is_active = True
 
-    def __init__(self, id):
-        self.id = id
-
     def check_password(self, inputPassword):
         return inputPassword == self.password
+
+# u = User(username = "marcus", name ="marcus solomon", password="pasword")
+# db.session.add(u)
+# db.session.commit()
 
 admin.add_view(ModelView(User, db.session))
 
@@ -64,6 +65,25 @@ def returningUser():
 
     else:
         return dict(msg = "FAILED")
+
+@app.route("/createuser", methods=["POST"])
+def creatingUser():
+    # user = User.query.filter_by(username=request.json['username']).first()
+    # if user is not None and user.check_password(request.json['password']):
+    #     login_user(user)
+    #     print("LOGGED IN USER WITH ID: " + str(user.id))
+    #     return render_template("buttonPage.html")
+
+    # else:
+    #     return dict(msg = "FAILED")
+    user = User.query.filter_by(username=request.json['username']).first()
+    if user is None:
+        u = User(username=request.json["username"], name = request.json["name"], password = request.json["password"])
+        db.session.add(u)
+        db.session.commit()
+        return render_template("buttonPage.html")
+    else:
+        abort(500)
 
 @app.route("/pressbutton", methods = ["GET"])
 @login_required
