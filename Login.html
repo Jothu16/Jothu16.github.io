@@ -81,13 +81,18 @@ span.psw {
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
-    <button type="submit"><a href="restaurant.html">Login</a></button>
+    <button type="submit"><a href="buttonPage.html">Login</a></button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
 
-  <button type="submit">Create an Account</button>
+<button type="submit" onclick = "MadeAccount()"><a href="Login.html">Create an Account</a></button>
+<script>
+function MadeAccount() {
+  alert("Account Created! Sign in below!");
+}
+</script>
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
