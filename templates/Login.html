@@ -66,33 +66,53 @@ span.psw {
 </style>
 </head>
 <body>
+  <script>
+    function MadeAccount() {
+      alert("Account Created! Sign in below!");
+    }
+    function loginUser() {
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            const payload = {
+                username : username,
+                password: password
+            }
+            const url = "http://127.0.0.1:5000/login"
+            var xhttp= new XMLHttpRequest();
+            xhttp.open("POST", url);
+            xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.onload= function() {
+                // const rep = JSON.parse(this.responseText);
+                // console.log(rep);
+                // document.getElementById("reply2").innerHTML=  "CREATED " + nameVal + " " + rep[nameVal];
+            };
+            xhttp.send(JSON.stringify(payload));
+    }
+    </script>
 
 <h2>Login or Signup to Continue!</h2>
 
-<form action="/action_page.php" method="post">
+
+<form action="return false">
   <div class="imgcontainer">
-    <img src="Pickee Logo.png" alt="Avatar" class="avatar">
+    <img src="/static/PickeeLogo.png" alt="Avatar" class="avatar">
   </div>
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" id="username" placeholder="Enter Username" name="uname" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" id="password" placeholder="Enter Password" name="psw" required>
 
-    <button type="submit"><a href="buttonPage.html">Login</a></button>
+    <button type="button" onclick="loginUser()">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
 
-<button type="submit" onclick = "MadeAccount()"><a href="Login.html">Create an Account</a></button>
-<script>
-function MadeAccount() {
-  alert("Account Created! Sign in below!");
-}
-</script>
+<button type="button" onclick = "MadeAccount()"><a href="Login.html">Create an Account</a></button>
+
 
   <div class="container" style="background-color:#f1f1f1">
     <button type="button" class="cancelbtn">Cancel</button>
