@@ -1,28 +1,25 @@
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
 
-<h2>Pickee, where we choose places to eat for you!</h2>
+    <div class="content">
+      <h2>Pickee, where we choose places to eat for you!</h2>
+      <button class="block"id="foodButton" onclick="randomLocation()">Click here and find a random new place to eat at!</button>
+      <div class="result" style="display:none;">
+        <h1>NAME:</h1>
+        <h3 id="nameHTML">This is the Name of the Restaurant</h3>
+        <h1>ADDRESS:</h1>
+        <h3 id="addressHTML">This is the Address of the Restuarant</h3>
+        <h1>TYPE:</h1>
+        <h3 id="typeHTML">This is the Type of Restaurant</h3>
+        <h1>Rating</h1>
+        <h3 id="ratingHTML">This is the Rating of the Restaurant</h3>
+      </div>
+    </div>
 
-<button class="block"id="foodButton" onclick="randomLocation()">Click here and find a random new place to eat at!</button>
-
-<div class="result" style="display:none;">
-  <h1>NAME:</h1>
-  <h3 id="nameHTML">This is the Name of the Restaurant</h3>
-
-  <h1>ADDRESS:</h1>
-  <h3 id="addressHTML">This is the Address of the Restuarant</h3>
-
-  <h1>TYPE:</h1>
-  <h3 id="typeHTML">This is the Type of Restaurant</h3>
-
-  <h1>Rating</h1>
-  <h3 id="ratingHTML">This is the Rating of the Restaurant</h3>
-</div
-
-</body>
-<script src="locations.js"></script>
+  </body>
+  <script src="locations.js"></script>
 </html>
