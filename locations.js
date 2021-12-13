@@ -8,15 +8,15 @@
 //})
 //.then(data => console.log(data));
 
-fetch("locations.json").then(async response => {
-   try {
-      const data = await response.json()
-      console.log('response data?', data)
-   } catch (error) {
-      console.log('Error happened here!')
-      console.error(error)
-   }
-})
+//fetch("locations.json").then(async response => {
+  // try {
+  //    const data = await response.json()
+//      console.log('response data?', data)
+//   } catch (error) {
+//      console.log('Error happened here!')
+//      console.error(error)
+//   }
+//})
 
 //Use onclick event to run the random location generator
 //when the user clicks on the button on main page
