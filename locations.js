@@ -22,7 +22,7 @@
 //when the user clicks on the button on main page
 
 
-document.getElementById("foodButton").onclick = randomLocation();
+//document.getElementById("foodButton").onclick = randomLocation();
 
 
 function randomLocation(){
@@ -333,4 +333,7 @@ function randomLocation(){
   document.getElementById("addressHTML").innerHTML = placeAddress;
   document.getElementById("typeHTML").innerHTML = placeType;
   document.getElementById("ratingHTML").innerHTML = placeRating;
+
+  document.querySelector("div").style.display = "block";
+
 }
