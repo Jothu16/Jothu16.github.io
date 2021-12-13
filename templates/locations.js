@@ -334,6 +334,6 @@ function randomLocation(){
   document.getElementById("typeHTML").innerHTML = placeType;
   document.getElementById("ratingHTML").innerHTML = placeRating;
 
-  document.querySelector("div").style.display = "block";
+  document.querySelector("div.result").style.display = "inline-block";
 
 }
