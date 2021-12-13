@@ -1,12 +1,13 @@
-Merced =
-[
-  {
-    "id": "1",
-    "Place": "Five Guys",
-    "Address": "3572 G St, Merced, CA, 95340",
-    "Type": "Fast Food",
-    "Rating": "4.1",
-  },
+{
+  "Merced" =
+  [
+    {
+      "id": "1",
+      "Place": "Five Guys",
+      "Address": "3572 G St, Merced, CA, 95340",
+      "Type": "Fast Food",
+      "Rating": "4.1",
+    },
   {
     "id": "2",
     "Place": "A&W Restaurant",
@@ -282,14 +283,15 @@ Merced =
     "Address": "3115 R St, Merced, CA 95340",
     "Type": "Mexican",
     "Rating": "4.1"
-  },
+    },
 
 
-  {
-    "id": "40",
-    "Place": "Applebee's Grill + Bar",
-    "Address": "1734 W Olive Ave, Merced, CA 95340",
-    "Type": "Bar and Grill",
-    "Rating": "3.9"
-  }
-],
+    {
+      "id": "40",
+      "Place": "Applebee's Grill + Bar",
+      "Address": "1734 W Olive Ave, Merced, CA 95340",
+      "Type": "Bar and Grill",
+      "Rating": "3.9"
+    }
+  ],
+}
