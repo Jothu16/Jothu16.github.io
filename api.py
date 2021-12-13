@@ -26,19 +26,33 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String, unique=True, nullable=False)
     name = db.Column(db.String, unique=False, nullable = False)
     password = db.Column(db.String, unique=False, nullable=False)
+    favs = db.relationship('Favorites', backref = 'User')
     is_active = True
 
     def check_password(self, inputPassword):
         return inputPassword == self.password
 
-# u = User(username = "marcus", name ="marcus solomon", password="pasword")
-# db.session.add(u)
-# db.session.commit()
+
+class Favorites(db.Model):
+    id = db.Column(db.Integer, nullable = False, primary_key = True)
+    restaurant = db.Column(db.String, unique = False, nullable = False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable = False)
+
+
 
 admin.add_view(ModelView(User, db.session))
+admin.add_view(ModelView(Favorites, db.session))
 
 db.create_all()
 db.session.commit()
+
+# u = User(username = "king", password = "123", name = "Sab")
+# db.session.add(u)
+# db.session.commit()
+# u = User.query.filter_by(username = "king").first()
+# f = Favorites(restaurant = "Atwater Sushi", user_id = u.id)
+# db.session.add(f)
+# db.session.commit()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -68,14 +82,6 @@ def returningUser():
 
 @app.route("/createuser", methods=["POST"])
 def creatingUser():
-    # user = User.query.filter_by(username=request.json['username']).first()
-    # if user is not None and user.check_password(request.json['password']):
-    #     login_user(user)
-    #     print("LOGGED IN USER WITH ID: " + str(user.id))
-    #     return render_template("buttonPage.html")
-
-    # else:
-    #     return dict(msg = "FAILED")
     user = User.query.filter_by(username=request.json['username']).first()
     if user is None:
         u = User(username=request.json["username"], name = request.json["name"], password = request.json["password"])
@@ -90,5 +96,13 @@ def creatingUser():
 def loadDashboard():
     return render_template("buttonPage.html")
 
+
+@app.route("/addFav", methods = ["POST"])
+@login_required
+def addFav():
+    f = Favorites(restaurant = request.json["restaurant"], user_id = current_user.id)
+    db.session.add(f)
+    db.session.commit()
+    return json.dumps("{message: 'success'}")
 
 app.run()
