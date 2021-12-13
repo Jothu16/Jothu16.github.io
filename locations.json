@@ -1,7 +1,6 @@
 {
   "Merced":
   [
-    //Fast Food
     {
       "Place": "Five Guys",
       "Address": "3572 G St, Merced, CA, 95340",
@@ -117,7 +116,6 @@
       "Rating": "4.6"
     },
 
-    //Asian
 
     {
       "Place": "King's Asian Cuisine",
@@ -186,7 +184,6 @@
       "Rating": "4.5"
     },
 
-    //Steakhouse
 
     {
       "Place": "Sizzler",
@@ -195,7 +192,6 @@
       "Rating": "4.1"
     },
 
-    //American
 
     {
       "Place": "Country Waffles Merced",
@@ -211,7 +207,6 @@
     },
 
 
-    //Italian
 
     {
       "Place": "Table 59",
@@ -232,7 +227,7 @@
       "Rating": "4.2"
     },
 
-    //Mexican
+
     {
       "Place": "Villa's",
       "Address": "900 Loughborough Dr, Merced, CA 95348",
@@ -252,7 +247,7 @@
       "Rating": "4.1"
     },
 
-    //Bar and Grill
+
     {
       "Place": "Applebee's Grill + Bar",
       "Address": "1734 W Olive Ave, Merced, CA 95340",
