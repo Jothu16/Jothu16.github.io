@@ -8,26 +8,69 @@ body {
 }
 
 .title{
-  color: #999999;
-  background-color: rgba(200, 200, 200, 0.8);
+  color: #ed8666;
+  font-weight: bolder;
+  font-size: 100px;
+  background-color: #b8d5d6;
   padding: 2px;
+  -webkit-text-stroke: 5px #000000;
 }
 
-.button {
-  background-color: red;
-  border: 2px solid #000000;
-  color: white;
-  padding: 20px;
+.search {
+  background-color: #ed8666;
+  font-weight: bolder;
   text-align: center;
   text-decoration: none;
+  border: 5px solid #000000;
+  color: #000000;
+  padding: 20px;
   display: inline-block;
-  font-size: 16px;
+  font-size: 32px;
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 15%;
 }
+.search:hover {
+  background-color: #ddd;
+  color: black;
+  text-align: center;
+}
 
-.button:hover {
+.directions{
+  background-color: #b8d6c0;
+  font-weight: bolder;
+  text-align: center;
+  text-decoration: none;
+  border: 3px solid #000000;
+  color: #000000;
+  padding: 10px;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+.directions:hover{
+  background-color: #ddd;
+  color: black;
+  text-align: center;
+}
+
+.learnmore{
+  background-color: #b8d6c0;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bolder;
+  padding: 10px;
+  display: inline-block;
+  margin: 4px 2px;
+  border-radius: 15px;
+  border: 3px solid #000000;
+  cursor: pointer;
+  font-size: 15px;
+}
+.learnmore:hover{
   background-color: #ddd;
   color: black;
   text-align: center;
@@ -35,7 +78,10 @@ body {
 
 .content{
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 50px;
+  padding-left: 50px;
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 10%;
