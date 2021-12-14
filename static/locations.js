@@ -675,3 +675,19 @@ function localSaveLocation(){
   //document.querySelector("div.result").style.display = "inline-block";
 
 }
+
+
+function clientAdd(){
+  const payload = {
+    "restaurant": document.getElementById("nameRestaurant").innerHTML
+  };
+
+  const url = "http://127.0.0.1:5000/addFav"
+  var xhttp= new XMLHttpRequest();
+  xhttp.open("POST", url);
+  xhttp.setRequestHeader("Content-Type", "application/json");
+  xhttp.onload = function() {
+      window.alert("added to favorites!");
+  };
+  xhttp.send(JSON.stringify(payload));
+}

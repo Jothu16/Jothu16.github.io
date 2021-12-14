@@ -116,5 +116,9 @@ def addFav():
     db.session.commit()
     return json.dumps("{message: 'success'}")
 
+@app.route("/mypickee", methods = ["GET"])
+@login_required
+def goProfile():
+    return render_template("profile.html")
 
 app.run()
