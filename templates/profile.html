@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 
 <html>
+<head>
+    <link rel="stylesheet" href="profile.css">
+</head>
 
 <body>
 
     <button><a href="buttonPage.html">Find a Place to Eat!</a></button>
 
-    <h1> Places I have liked </h1>
+    <h1 id="head" style="color:white;" > Hello *******USERNAME*******</h1>
 
-    <h2> Places I don't like</h2>
+    <div class="row">
+        <div class="column" style="background-color:#ff1694;">
+          <h2>Places I liked</h2>
+          <p>
+            <form>
+                <label for="likes">Likes:</label><br>
+                <input type="text" id="likes" name="likes"><br>
+              </form>
+          </p>
+        </div>
+        <div class="column" style="background-color:#F699cd;">
+          <h2>Places I didn't like</h2>
+          <p>
+            <form>
+                <label for="dislikes">Dislikes:</label><br>
+                <input type="text" id="dislikes" name="dislikes">
+              </form>
+          </p>
+        </div>
+      </div>
 
 
 </body>
