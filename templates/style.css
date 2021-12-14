@@ -15,6 +15,12 @@ body {
   padding: 2px;
   -webkit-text-stroke: 5px #000000;
 }
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 75px;
+    -webkit-text-stroke: 3px #000000;
+  }
+}
 
 .search {
   background-color: #ed8666;
