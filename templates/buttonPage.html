@@ -1,16 +1,16 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./static/style.css">
   </head>
   <body>
 
-    <div class="content">
+    <div class="content" style="background-image: url('./static/map.jpg');">
       <h1 class="title">Pickee</h1>
       <h2>Where we choose places to eat for you!</h2>
       <h3>Click the button below to search for a restaurant.</h3>
       <br><br>
-      <button class="search" id="foodButton" onclick="randomLocation(placeId)">Search</button>
+      <button class="search" id="foodButton" onclick="randomLocation()">Search</button>
       <br><br>
       <div class="result" style="display:none;">
         <h1 class="fieldr">NAME:</h1>
@@ -31,5 +31,5 @@
     </div>
     <br><br><br>
   </body>
-  <script src="locations.js"></script>
+  <script src="{{url_for('static', filename='locations.js')}}"></script>
 </html>

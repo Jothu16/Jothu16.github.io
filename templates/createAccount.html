@@ -67,24 +67,26 @@ span.psw {
 </head>
 <body>
   <script>
-    function loginUser() {
+    function MadeAccount() {
             let username = document.getElementById("username").value;
             let password = document.getElementById("password").value;
+            let name = document.getElementById("name").value;
+
             const payload = {
                 username : username,
+                name: name,
                 password: password
-            }
-            const url = "http://127.0.0.1:5000/login"
-            var xhttp= new XMLHttpRequest();
+            };
+            const url = "http://127.0.0.1:5000/createuser";
+            var xhttp = new XMLHttpRequest();
             xhttp.open("POST", url);
             xhttp.setRequestHeader("Content-Type", "application/json");
-            xhttp.onload= function() {
-                // const rep = JSON.parse(this.responseText);
-                // console.log(rep);
-                // document.getElementById("reply2").innerHTML=  "CREATED " + nameVal + " " + rep[nameVal];
-            };
-            xhttp.send(JSON.stringify(payload));
+            xhttp.onload = function() {
+                console.log("Created User")
+            }
+            xhttp.send(JSON.stringify(payload))
     }
+
     </script>
 
 <h2>Login or Signup to Continue!</h2>
@@ -99,16 +101,18 @@ span.psw {
     <label for="uname"><b>Username</b></label>
     <input type="text" id="username" placeholder="Enter Username" name="uname" required>
 
+    <label for="nme"><b>Name</b></label>
+    <input type="text" id="name" placeholder="Enter Name" name="nme" required>
+
     <label for="psw"><b>Password</b></label>
     <input type="password" id="password" placeholder="Enter Password" name="psw" required>
 
-    <button type="button" onclick="loginUser()">Login</button>
+    <button type="button" onclick="MadeAccount()">Create Account</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
   </div>
 
-<button type="button"><a href="http://127.0.0.1:5000/newuser">Create an Account</a></button>
 
 
   <div class="container" style="background-color:#f1f1f1">

@@ -25,7 +25,8 @@
 //document.getElementById("foodButton").onclick = randomLocation();
 var placeId = 0;
 
-function randomLocation(placeId){
+
+function randomLocation(){
   var restaurants = {
     "merced" :
       [
@@ -342,10 +343,20 @@ function randomLocation(placeId){
 placeId = newPlaceId;
 
 function redirectRestaurant(){
-  window.location.href = "restaurant.html";
+  const urlName = encodeURI(document.getElementById("nameHTML").innerHTML);
+  window.location.href = "http://127.0.0.1:5000/moredetails/" + urlName;
 }
 
-function localSaveLocation(placeId){
+function localSaveLocation(){
+
+  var urlLive = window.location.href;
+
+  var pathname = new URL(urlLive).pathname
+  const lookingRestaurant = decodeURI(pathname.split("/")[2])
+
+
+
+
   var restaurants = {
     "merced" :
       [
@@ -640,17 +651,26 @@ function localSaveLocation(placeId){
   //Get location data from JSON file
   //var locations = JSON.parse("Merced");
   //Generate random number
+  var rest;
+  for(objs of restaurants.merced){
+    if(objs.Place == lookingRestaurant){
+      rest = objs;
+      console.log(objs.Place + " " + lookingRestaurant)
+      break;
+    }
+
+  }
 
   //Use random number to get random location info
-  var savedPlaceName = restaurants.merced[placeId].Place;
-  var savedPlaceAddress = restaurants.merced[placeId].Address;
-  var savedPlaceType = restaurants.merced[placeId].Type;
-  var savedPlaceRating = restaurants.merced[placeId].Rating;
-  //Use HTML to print location info
-  document.getElementById("nameRestaurant").innerHTML = savedPlaceName;
-  document.getElementById("addressRestaurant").innerHTML = savedPlaceAddress;
-  document.getElementById("typeRestaurant").innerHTML = savedPlaceType;
-  document.getElementById("ratingRestaurant").innerHTML = savedPlaceRating;
+  // var savedPlaceName = restaurants.merced[placeId].Place;
+  // var savedPlaceAddress = restaurants.merced[placeId].Address;
+  // var savedPlaceType = restaurants.merced[placeId].Type;
+  // var savedPlaceRating = restaurants.merced[placeId].Rating;
+  // //Use HTML to print location info
+  document.getElementById("nameRestaurant").innerHTML = rest.Place;
+  document.getElementById("addressRestaurant").innerHTML = rest.Address;
+  document.getElementById("typeRestaurant").innerHTML = rest.Type;
+  document.getElementById("ratingRestaurant").innerHTML = rest.Rating;
 
   //document.querySelector("div.result").style.display = "inline-block";
 

@@ -1,4 +1,5 @@
 import json
+import hashlib
 from typing import Dict
 from flask import Flask, render_template, request, abort
 from flask_admin import Admin
@@ -13,12 +14,16 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 app.secret_key = 'my Pa$$word!!!'
-
+salt = 'sdfljalfdjlsj'.encode('utf-8')
 
 app.config['FLASK_ADMIN_SWATCH'] = 'cerulean'
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///example.sqlite"
 
 admin = Admin(app, name='microblog', template_mode='bootstrap3')
+
+def e(password):
+    return hashlib.sha256(password.encode('utf-8') + salt).hexdigest()
+
 
 
 class User(UserMixin, db.Model):
@@ -30,7 +35,9 @@ class User(UserMixin, db.Model):
     is_active = True
 
     def check_password(self, inputPassword):
-        return inputPassword == self.password
+        inputEnc = inputPassword.encode('utf-8')
+        return (hashlib.sha256(inputEnc + salt).hexdigest() == self.password)
+
 
 
 class Favorites(db.Model):
@@ -40,19 +47,14 @@ class Favorites(db.Model):
 
 
 
+
+
 admin.add_view(ModelView(User, db.session))
 admin.add_view(ModelView(Favorites, db.session))
 
 db.create_all()
 db.session.commit()
 
-# u = User(username = "king", password = "123", name = "Sab")
-# db.session.add(u)
-# db.session.commit()
-# u = User.query.filter_by(username = "king").first()
-# f = Favorites(restaurant = "Atwater Sushi", user_id = u.id)
-# db.session.add(f)
-# db.session.commit()
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -69,6 +71,11 @@ def landingPage():
     else:
         return render_template("Login.html")
 
+
+@app.route("/newuser", methods=["GET"])
+def newUser():
+    return render_template("createAccount.html")
+
 @app.route("/login", methods=["POST"])
 def returningUser():
     user = User.query.filter_by(username=request.json['username']).first()
@@ -84,7 +91,7 @@ def returningUser():
 def creatingUser():
     user = User.query.filter_by(username=request.json['username']).first()
     if user is None:
-        u = User(username=request.json["username"], name = request.json["name"], password = request.json["password"])
+        u = User(username=request.json["username"], name = request.json["name"], password = e(request.json["password"]))
         db.session.add(u)
         db.session.commit()
         return render_template("buttonPage.html")
@@ -96,6 +103,10 @@ def creatingUser():
 def loadDashboard():
     return render_template("buttonPage.html")
 
+@app.route("/moredetails/<name>", methods = ["GET"])
+@login_required
+def moreDetails(name):
+    return render_template("restaurant.html")
 
 @app.route("/addFav", methods = ["POST"])
 @login_required
@@ -104,5 +115,6 @@ def addFav():
     db.session.add(f)
     db.session.commit()
     return json.dumps("{message: 'success'}")
+
 
 app.run()
