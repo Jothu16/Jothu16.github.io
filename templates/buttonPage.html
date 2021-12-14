@@ -10,7 +10,7 @@
       <h2>Where we choose places to eat for you!</h2>
       <h3>Click the button below to search for a restaurant.</h3>
       <br><br>
-      <button class="search" id="foodButton" onclick="randomLocation()">Search</button>
+      <button class="search" id="foodButton" onclick="randomLocation(placeId)">Search</button>
       <br><br>
       <div class="result" style="display:none;">
         <h1 class="fieldr">NAME:</h1>
@@ -23,9 +23,9 @@
         <h1 id="ratingHTML">This is the Rating of the Restaurant</h1>
         <div class="resultbuttons">
           <button class="directions">Directions</button>
-          <a href="restaurant.html">
-          <button class="learnmore">Learn More</buttons>
-          </a>
+
+          <button class="learnmore" onclick="redirectRestaurant()">Learn More</buttons>
+
         </div>
       </div>
     </div>

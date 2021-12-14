@@ -110,7 +110,7 @@ body {
 }
 </style>
 </head>
-<body>
+<body onload="localSaveLocation(placeId)">
 
 <div class="header">
   <h1>Pick.ee</h1>
@@ -126,6 +126,17 @@ body {
   <div class="side">
     <h2>The Restaurant we chose for you: </h2>
     <div class="fakeimg" style="height:200px;">Image</div>
+
+    <div class="result">
+      <h1 class="fieldr">NAME:</h1>
+      <h1 id="nameRestaurant">This is the Name of the Restaurant</h1>
+      <h1 class="fieldr">ADDRESS:</h1>
+      <h1 id="addressRestaurant">This is the Address of the Restuarant</h1>
+      <h1 class="fieldr">TYPE:</h1>
+      <h1 id="typeRestaurant">This is the Type of Restaurant</h1>
+      <h1 class="fieldr">Rating</h1>
+      <h1 id="ratingRestaurant">This is the Rating of the Restaurant</h1>
+    </div>
     <p>Wow that looks tasty right?!</p>
 
 
@@ -152,4 +163,5 @@ body {
 </div>
 
 </body>
+<script src="locations.js"></script>
 </html>
