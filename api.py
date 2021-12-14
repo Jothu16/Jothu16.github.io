@@ -116,6 +116,20 @@ def addFav():
     db.session.commit()
     return json.dumps("{message: 'success'}")
 
+@app.route("/listFavs", methods = ["GET"])
+@login_required
+def listFav():
+    f = Favorites.query.filter_by(user_id = current_user.id).all();
+    allFavs = []
+    for objs in f:
+        allFavs.append(objs.restaurant)
+
+    return dict(resp = allFavs)
+
+
+
+
+
 @app.route("/mypickee", methods = ["GET"])
 @login_required
 def goProfile():

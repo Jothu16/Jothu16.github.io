@@ -2,36 +2,58 @@
 
 <html>
 <head>
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="./static/profile.css">
 </head>
 
-<body>
+<body onload="loadFavs()">
 
-    <button><a href="buttonPage.html">Find a Place to Eat!</a></button>
+  <div class="header">
+    <h1>Pick.ee</h1>
+    <p>The Place to Try New Food</p>
+    <h1> Welcome back</h1>
+  </div>
 
-    <h1 id="head" style="color:white;" > Hello *******USERNAME*******</h1>
+    <div class="navbar">
+      <a href="buttonPage.html">Find a Place to Eat!</a>
+      <a href="#" class="right">Sign Out</a>
+    </div>
 
     <div class="row">
-        <div class="column" style="background-color:#ff1694;">
+        <div class="column" style="background-color:white;">
           <h2>Places I liked</h2>
           <p>
             <form>
-                <label for="likes">Likes:</label><br>
-                <input type="text" id="likes" name="likes"><br>
-              </form>
-          </p>
-        </div>
-        <div class="column" style="background-color:#F699cd;">
-          <h2>Places I didn't like</h2>
-          <p>
-            <form>
-                <label for="dislikes">Dislikes:</label><br>
-                <input type="text" id="dislikes" name="dislikes">
+                <h2><label for="likes">Likes:</label></h2><br>
+                <ul id = "myLikes">
+                </ul>
               </form>
           </p>
         </div>
       </div>
 
+      <script>
+         function loadFavs(){
+          const url = "http://127.0.0.1:5000/listFavs"
+          var xhttp= new XMLHttpRequest();
+          xhttp.open("GET", url);
+          xhttp.setRequestHeader("Content-Type", "application/json");
+          xhttp.onload = function() {
+            const rep = JSON.parse(this.responseText);
+            console.log(rep);
+            const val = rep["resp"]
+
+            for (likes of val){
+              document.getElementById("myLikes").innerHTML += "<li>" + likes + "</li>"
+            }
+
+          };
+          xhttp.send();
+         }
+
+
+
+
+      </script>
 
 </body>
 </html>
